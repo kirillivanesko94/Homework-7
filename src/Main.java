@@ -82,12 +82,15 @@ public class Main {
         System.out.println();
         System.out.println("Задача №3");
         int countOfPeople = 12_000_000;
-        int populationGrowth = 17 * 1000;
-        int populationDeparture = 8 * 1000;
+        int populationGrowth = 17;
+        int populationDeparture = 8;
+        double coefficientDeparture = populationDeparture / 1000.0;
+        double coefficientGrowth = populationGrowth / 1000.0;
         int year = 0;
         while (year < 10) {
             year++;
-            countOfPeople = countOfPeople + (populationGrowth - populationDeparture);
+            int delta = (int) (countOfPeople * coefficientGrowth - coefficientDeparture * coefficientDeparture);
+            countOfPeople += delta;
             System.out.println("Год - " + year + " численность населения составляет - " + countOfPeople);
         }
     }
